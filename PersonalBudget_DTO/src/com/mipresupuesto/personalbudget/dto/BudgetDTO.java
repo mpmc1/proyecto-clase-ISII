@@ -1,6 +1,5 @@
 package com.mipresupuesto.personalbudget.dto;
 
-
 public final class BudgetDTO {
 	private YearDTO year;
 	private PersonDTO person;

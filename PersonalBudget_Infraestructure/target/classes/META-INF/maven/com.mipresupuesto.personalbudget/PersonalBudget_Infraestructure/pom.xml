@@ -19,6 +19,11 @@
 		</plugins>
 	</build>
 	<dependencies>
+	<dependency>
+			<groupId>com.mipresupuesto.personalbudget</groupId>
+			<artifactId>PersonalBudget_CrossCuting</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.mipresupuesto.personalbudget</groupId>
 			<artifactId>PersonalBudget_CrossCuting</artifactId>
@@ -28,6 +33,11 @@
 			<groupId>com.mipresupuesto.personalbudget</groupId>
 			<artifactId>PersonalBudget_Entity</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		<groupId>com.microsoft.sqlserver</groupId>
+		<artifactId>mssql-jdbc</artifactId>
+		<version>11.2.1.jre18</version>
 		</dependency>
 	</dependencies>
 </project>
