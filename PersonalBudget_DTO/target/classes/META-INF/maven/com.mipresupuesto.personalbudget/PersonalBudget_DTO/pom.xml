@@ -1,24 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mipresupuesto.personalbudget</groupId>
-  <artifactId>PersonalBudget_DTO</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>PersonalBudget_DTO</name>
-  <description>Capa de objetos de transferencia de datos que permiten la comunicación entre la capa de controlador y aplicación</description>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>19</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-  	<dependency>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mipresupuesto.personalbudget</groupId>
+	<artifactId>PersonalBudget_DTO</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>PersonalBudget_DTO</name>
+	<description>Capa de objetos de transferencia de datos que permiten la comunicación entre la capa de controlador y aplicación</description>
+	<properties>
+		<sonar.organization>mpmc1</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>19</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
 			<groupId>com.mipresupuesto.personalbudget</groupId>
 			<artifactId>PersonalBudget_CrossCuting</artifactId>
 			<version>0.0.1-SNAPSHOT</version>

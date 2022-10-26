@@ -5,6 +5,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Application</name>
 	<description>Componente que contiene la lógica de negocio de la aplicación Personal Budget.</description>
+	<properties>
+		<sonar.organization>mpmc1</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
