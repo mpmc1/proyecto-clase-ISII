@@ -1,12 +1,11 @@
-name: My Test Monorepo Project
+name: SonarCloud
 on:
   push:
-      branches:
+    branches:
       - main
-      paths:
-      - 'lambdas/test/**'
   pull_request:
     types: [opened, synchronize, reopened]
+jobs:
 jobs:
   sonarcloudScan1:
     name: Build and analyze
