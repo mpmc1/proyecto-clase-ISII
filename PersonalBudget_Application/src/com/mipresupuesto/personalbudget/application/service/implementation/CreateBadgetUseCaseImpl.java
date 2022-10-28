@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.mipresupuesto.personalbudget.application.service.entityassembler.EntityAssembler;
 import com.mipresupuesto.personalbudget.application.service.interfaces.CreateBudgetUseCase;
+import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
+import com.mipresupuesto.personalbudget.crosscuting.exceptions.GeneralException;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 import com.mipresupuesto.personalbudget.infraestructure.data.interfaces.BudgetRepository;
@@ -22,8 +24,14 @@ public class CreateBadgetUseCaseImpl implements CreateBudgetUseCase {
 
 	@Override
 	public void execute(BudgetDomain budget) {
-		budgetRepository.save(entityAssembler.assembleEntity(budget));
+		try {
+			BudgetEntity budgetEntity = entityAssembler.assembleEntity(budget);
+			budgetRepository.save(budgetEntity);			
+		} catch (BudgetException exception) {
+			throw exception;
+		}
 
 	}
+	
 
 }

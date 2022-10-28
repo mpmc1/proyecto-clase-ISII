@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilNumeric;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 
 @Entity
@@ -28,23 +29,23 @@ public final class YearEntity {
 		setYear(year);
 	}
 
-	public final UUID getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public final void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = UtilUUID.getDefaultUUID(id);
 	}
 
-	public final int getYear() {
+	public int getYear() {
 		if (year < 0) {
 			setYear(0);
 		}
 		return year;
 	}
 
-	public final void setYear(final int year) {
-		this.year = year;
+	public void setYear(int year) {
+		this.year = UtilNumeric.getUtilNumeric().getDefault(year).intValue();
 	}
 
 }

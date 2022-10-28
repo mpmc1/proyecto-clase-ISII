@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 
 @Entity
@@ -43,27 +44,27 @@ public class BudgetEntity {
 		return person;
 	}
 
-	public final void setPerson(final PersonEntity person) {
-		this.person = person;
+	public void setPerson(final PersonEntity person) {
+		this.person = UtilObject.getUtilObject().getDefault(person, new PersonEntity());
 	}
 
-	public final YearEntity getYear() {
+	public YearEntity getYear() {
 		if(year == null) {
 			setYear(new YearEntity());
 		}
 		return year;
 	}
 
-	public final void setYear(final YearEntity year) {
-		this.year = year;
+	public void setYear(final YearEntity year) {
+		this.year = UtilObject.getUtilObject().getDefault(year, new YearEntity());
 	}
 
-	public final UUID getId() {
+	public UUID getId() {
 		
 		return id;
 	}
 
-	public final void setId(UUID id) {
+	public void setId(final UUID id) {
 		this.id = UtilUUID.getDefaultUUID(id);
 	}
 

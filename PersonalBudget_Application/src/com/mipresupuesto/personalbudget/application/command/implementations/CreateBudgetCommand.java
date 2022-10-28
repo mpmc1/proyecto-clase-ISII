@@ -3,14 +3,15 @@ package com.mipresupuesto.personalbudget.application.command.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mipresupuesto.personalbudget.application.command.interfaces.createBudgetPort;
+import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
 import com.mipresupuesto.personalbudget.application.service.dtoassembler.DTOAssembler;
 import com.mipresupuesto.personalbudget.application.service.interfaces.CreateBudgetUseCase;
+import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 
 @Service
-public class CreatBudgetCommand implements createBudgetPort {
+public class CreateBudgetCommand implements CreateBudgetPort {
 
 	@Autowired
 	private CreateBudgetUseCase useCase;
@@ -19,7 +20,11 @@ public class CreatBudgetCommand implements createBudgetPort {
 	
 	@Override
 	public void execute(BudgetDTO budget) {
-		useCase.execute(dtoAssmebler.assembleDomain(budget));
+		try {
+			useCase.execute(dtoAssmebler.assembleDomain(budget));			
+		} catch (BudgetException exception) {
+			throw exception;
+		}
 	}
 
 }

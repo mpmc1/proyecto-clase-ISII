@@ -28,7 +28,8 @@ public class PersonEntityAssembler implements EntityAssembler<PersonEntity, Pers
 	public PersonEntity assembleEntity(PersonDomain domain) {
 		PersonEntity entity = new PersonEntity();
 		if (domain != null) {
-			entity = new PersonEntity(domain.getIdCard(), domain.getFirstName(), domain.getMiddleName(), domain.getLastName(), domain.getName(), domain.getCompleteName());
+			entity = new PersonEntity(domain.getId(), domain.getIdCard(), domain.getFirstName(), domain.getMiddleName(),
+					domain.getLastName());
 		}
 		return entity;
 	}

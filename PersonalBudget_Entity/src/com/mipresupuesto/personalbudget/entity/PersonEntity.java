@@ -7,25 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilText;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 
-
 @Entity
-@Table(name ="Person")
+@Table(name = "Person")
 public class PersonEntity {
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private UUID id;
-	@Column(name="idCard")
+	@Column(name = "idCard")
 	private String idCard;
-	@Column(name="firstName")
+	@Column(name = "firstName")
 	private String firstName;
-	@Column(name="middleName")
+	@Column(name = "middleName")
 	private String middleName;
-	@Column(name="lastName")
+	@Column(name = "lastName")
 	private String lastName;
-	private String name;
-	private String completeName;
 
 	public PersonEntity() {
 		setId(UtilUUID.DEFAULT_UUID);
@@ -33,92 +31,67 @@ public class PersonEntity {
 		setFirstName("");
 		setMiddleName("");
 		setLastName("");
-		setName("");
-		setCompleteName("");
 	}
 
-	public PersonEntity(final String idCard, final String firstName, final String middleName, final String lastName,
-			final String name, final String completeName) {
+	public PersonEntity(final UUID id, final String idCard, final String firstName, final String middleName,
+			final String lastName) {
+		setId(id);
 		setIdCard(idCard);
 		setFirstName(firstName);
 		setMiddleName(middleName);
 		setLastName(lastName);
-		setName(name);
-		setCompleteName(completeName);
 	}
 
-	public final UUID getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public final void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = UtilUUID.getDefaultUUID(id);
 	}
 
-	public final String getIdCard() {
+	public String getIdCard() {
 		if (idCard == null) {
 			setIdCard("");
 		}
 		return idCard.trim();
 	}
 
-	public final void setIdCard(final String idCard) {
-		this.idCard = idCard;
+	public void setIdCard(final String idCard) {
+		this.idCard = UtilText.trim(idCard);
 	}
 
-	public final String getFirstName() {
+	public String getFirstName() {
 		if (firstName == null) {
 			setFirstName("");
 		}
 		return firstName.trim();
 	}
 
-	public final void setFirstName(final String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(final String firstName) {
+		this.firstName = UtilText.trim(firstName);
 	}
 
-	public final String getMiddleName() {
+	public String getMiddleName() {
 		if (middleName == null) {
 			setMiddleName("");
 		}
 		return middleName.trim();
 	}
 
-	public final void setMiddleName(final String middleName) {
-		this.middleName = middleName;
+	public void setMiddleName(final String middleName) {
+		this.middleName = UtilText.trim(middleName);
 	}
 
-	public final String getLastName() {
+	public String getLastName() {
 		if (lastName == null) {
 			setLastName("");
 		}
 		return lastName.trim();
 	}
 
-	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getName() {
-		if (name == null) {
-			setName("");
-		}
-		return name.trim();
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCompleteName() {
-		if (completeName == null) {
-			setCompleteName("");
-		}
-		return completeName.trim();
-	}
-
-	public void setCompleteName(String completeName) {
-		this.completeName = completeName;
+	public void setLastName(final String lastName) {
+		this.lastName = UtilText.trim(lastName);
 	}
 
 }

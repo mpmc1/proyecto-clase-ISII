@@ -2,6 +2,9 @@ package com.mipresupuesto.personalbudget.domain;
 
 import java.util.UUID;
 
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilText;
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
+
 public class PersonDomain {
 	private UUID id;
 	private String idCard;
@@ -10,11 +13,11 @@ public class PersonDomain {
 	private String lastName;
 
 	private PersonDomain(UUID id, String idCard, String firstName, String middleName, String lastName) {
-		this.id = id;
-		this.idCard = idCard;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
+		setId(id);
+		setIdCard(idCard);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
 
 	}
 
@@ -51,23 +54,23 @@ public class PersonDomain {
 	}
 
 	public final void setId(UUID id) {
-		this.id = (id == null) ? UUID.randomUUID() : id;
+		this.id = UtilUUID.getDefaultUUID(id);
 	}
 
 	public final void setIdCard(String idCard) {
-		this.idCard = idCard;
+		this.idCard = UtilText.trim(idCard);
 	}
 
 	public final void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName = UtilText.trim(firstName);
 	}
 
 	public final void setMiddleName(String middleName) {
-		this.middleName = middleName;
+		this.middleName = UtilText.trim(middleName);
 	}
 
 	public final void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastName = UtilText.trim(lastName);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilText;
+
 public final class PersonDTO {
 	private String id;
 	private String idCard;
@@ -39,7 +41,7 @@ public final class PersonDTO {
 	}
 
 	public final void setId(final String id) {
-		this.id = id;
+		this.id = UtilText.trim(id);
 	}
 
 	public final String getIdCard() {
@@ -50,7 +52,7 @@ public final class PersonDTO {
 	}
 
 	public final void setIdCard(final String idCard) {
-		this.idCard = idCard;
+		this.idCard = UtilText.trim(idCard);
 	}
 
 	public final String getFirstName() {
@@ -61,7 +63,7 @@ public final class PersonDTO {
 	}
 
 	public final void setFirstName(final String firstName) {
-		this.firstName = firstName;
+		this.firstName = UtilText.trim(firstName);
 	}
 
 	public final String getMiddleName() {
@@ -72,7 +74,7 @@ public final class PersonDTO {
 	}
 
 	public final void setMiddleName(final String middleName) {
-		this.middleName = middleName;
+		this.middleName = UtilText.trim(middleName);
 	}
 
 	public final String getLastName() {
@@ -83,7 +85,7 @@ public final class PersonDTO {
 	}
 
 	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
+		this.lastName = UtilText.trim(lastName);
 	}
 
 	public String getName() {
@@ -94,7 +96,7 @@ public final class PersonDTO {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = UtilText.trim(name);
 	}
 
 	public String getCompleteName() {
@@ -105,7 +107,7 @@ public final class PersonDTO {
 	}
 
 	public void setCompleteName(String completeName) {
-		this.completeName = completeName;
+		this.completeName = UtilText.trim(completeName);
 	}
 
 }
