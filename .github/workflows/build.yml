@@ -35,9 +35,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           cd PersonalBudget_Api
-<<<<<<< HEAD
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mpmc1_proyecto-clase-ISII_API
-=======
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mpmc1_proyecto-clase-ISII_API
         
->>>>>>> 5e347ddd7a168a90ee02709e6baea0997d6602cf
