@@ -9,6 +9,7 @@
 	</parent>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_Api</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Api</name>
 	<description>Componente que permite exponer los diferentes mecanismos de acceso a la aplicación Personal Budget.</description>

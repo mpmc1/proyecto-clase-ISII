@@ -2,6 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_DTO</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_DTO</name>
 	<description>Capa de objetos de transferencia de datos que permiten la comunicación entre la capa de controlador y aplicación</description>

@@ -8,6 +8,7 @@
 	</parent>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_Entity</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Entity</name>
 	<description>Capa de entidades que permite la comunicación entre los casos de uso e infraestructura</description>

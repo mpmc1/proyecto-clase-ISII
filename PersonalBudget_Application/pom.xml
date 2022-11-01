@@ -2,6 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_Application</artifactId>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Application</name>
 	<description>Componente que contiene la lógica de negocio de la aplicación Personal Budget.</description>
