@@ -3,8 +3,8 @@ package com.mipresupuesto.personalbudget.application.service.entityassembler.imp
 import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.service.entityassembler.EntityAssembler;
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
-import com.mipresupuesto.personalbudget.domain.YearDomain;
 import com.mipresupuesto.personalbudget.domain.build.BudgetDomainBuilder;
 import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 
@@ -17,7 +17,7 @@ public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, Budg
 	@Override
 	public BudgetDomain assembleDomain(BudgetEntity entity) {
 		BudgetDomain domain = BudgetDomainBuilder.get().build();
-		if (entity != null) {
+		if (!UtilObject.getUtilObject().isNull(entity)) {
 			domain = BudgetDomainBuilder.get().setId(entity.getId())
 					.setPerson(personAssembler.assembleDomain(entity.getPerson()))
 					.setYear(yearAssembler.assembleDomain(entity.getYear())).build();
@@ -28,7 +28,7 @@ public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, Budg
 	@Override
 	public BudgetEntity assembleEntity(BudgetDomain domain) {
 		BudgetEntity entity = new BudgetEntity();
-		if (domain != null) {
+		if (!UtilObject.getUtilObject().isNull(domain)) {
 			entity = new BudgetEntity(domain.getID(), yearAssembler.assembleEntity(domain.getYear()),
 					personAssembler.assembleEntity(domain.getPerson()));
 		}

@@ -38,7 +38,7 @@ public class BudgetEntity {
 	}
 
 	public PersonEntity getPerson() {
-		if(person == null) {
+		if(UtilObject.getUtilObject().isNull(person)) {
 			setPerson(new PersonEntity());
 		}
 		return person;
@@ -49,7 +49,7 @@ public class BudgetEntity {
 	}
 
 	public YearEntity getYear() {
-		if(year == null) {
+		if(UtilObject.getUtilObject().isNull(year)) {
 			setYear(new YearEntity());
 		}
 		return year;

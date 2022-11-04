@@ -27,10 +27,10 @@ public class PersonEntity {
 
 	public PersonEntity() {
 		setId(UtilUUID.DEFAULT_UUID);
-		setIdCard("");
-		setFirstName("");
-		setMiddleName("");
-		setLastName("");
+		setIdCard(UtilText.EMPTY);
+		setFirstName(UtilText.EMPTY);
+		setMiddleName(UtilText.EMPTY);
+		setLastName(UtilText.EMPTY);
 	}
 
 	public PersonEntity(final UUID id, final String idCard, final String firstName, final String middleName,
@@ -43,6 +43,10 @@ public class PersonEntity {
 	}
 
 	public UUID getId() {
+		if (UtilUUID.isNull(id)) {
+			setId(UtilUUID.DEFAULT_UUID);
+		}
+
 		return id;
 	}
 
@@ -51,8 +55,8 @@ public class PersonEntity {
 	}
 
 	public String getIdCard() {
-		if (idCard == null) {
-			setIdCard("");
+		if (UtilText.isNull(idCard)) {
+			setIdCard(UtilText.EMPTY);
 		}
 		return idCard.trim();
 	}
@@ -62,8 +66,8 @@ public class PersonEntity {
 	}
 
 	public String getFirstName() {
-		if (firstName == null) {
-			setFirstName("");
+		if (UtilText.isNull(firstName)) {
+			setFirstName(UtilText.EMPTY);
 		}
 		return firstName.trim();
 	}
@@ -73,8 +77,8 @@ public class PersonEntity {
 	}
 
 	public String getMiddleName() {
-		if (middleName == null) {
-			setMiddleName("");
+		if (UtilText.isNull(middleName)) {
+			setMiddleName(UtilText.EMPTY);
 		}
 		return middleName.trim();
 	}
@@ -84,9 +88,10 @@ public class PersonEntity {
 	}
 
 	public String getLastName() {
-		if (lastName == null) {
-			setLastName("");
+		if (UtilText.isNull(lastName)) {
+			setLastName(UtilText.EMPTY);
 		}
+		
 		return lastName.trim();
 	}
 

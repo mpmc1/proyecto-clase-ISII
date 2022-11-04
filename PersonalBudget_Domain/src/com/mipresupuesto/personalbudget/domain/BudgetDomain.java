@@ -1,3 +1,4 @@
+
 package com.mipresupuesto.personalbudget.domain;
 
 import java.util.UUID;
@@ -14,9 +15,9 @@ public class BudgetDomain {
 	private PersonDomain person;
 
 	private BudgetDomain(final UUID id, final YearDomain year, final PersonDomain person) {
-		this.id = id;
-		this.year = year;
-		this.person = person;
+		setId(id);
+		setYear(year);
+		setPerson(person);
 	}
 
 	public static BudgetDomain build(final UUID id, final YearDomain year, final PersonDomain person) {

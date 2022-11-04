@@ -27,7 +27,6 @@ public class UtilUUID {
 			try {
 				uuid = UUID.fromString(id);
 			}catch(IllegalArgumentException exception) {
-				//TODO: Manejar la excepción
 			}
 		}
 		return uuid;
@@ -39,5 +38,8 @@ public class UtilUUID {
 		}
 		return uuidString;
 	}
+	
+	public static boolean isNull(UUID value) {
+		return UtilObject.getUtilObject().isNull(value);}
 
 }

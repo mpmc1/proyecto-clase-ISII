@@ -27,6 +27,7 @@ public final class YearDTO {
 		}
 		return id.trim();
 	}
+	
 
 	public final void setId(final String id) {
 		this.id = UtilText.trim(id);
