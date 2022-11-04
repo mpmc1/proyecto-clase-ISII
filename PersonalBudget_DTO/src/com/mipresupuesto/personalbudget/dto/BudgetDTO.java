@@ -21,7 +21,7 @@ public final class BudgetDTO {
 	}
 
 	public PersonDTO getPerson() {
-		if(person == null) {
+		if(UtilObject.getUtilObject().isNull(person)) {
 			setPerson(PersonDTO.create());
 		}
 		return person;
@@ -32,7 +32,7 @@ public final class BudgetDTO {
 	}
 
 	public final YearDTO getYear() {
-		if(year == null) {
+		if(UtilObject.getUtilObject().isNull(year)) {
 			setYear(YearDTO.create());
 		}
 		return year;

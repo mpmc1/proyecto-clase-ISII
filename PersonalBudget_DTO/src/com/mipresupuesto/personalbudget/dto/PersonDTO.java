@@ -12,13 +12,13 @@ public final class PersonDTO {
 	private String completeName;
 
 	public PersonDTO() {
-		setId("");
-		setIdCard("");
-		setFirstName("");
-		setMiddleName("");
-		setLastName("");
-		setName("");
-		setCompleteName("");
+		setId(UtilText.EMPTY);
+		setIdCard(UtilText.EMPTY);
+		setFirstName(UtilText.EMPTY);
+		setMiddleName(UtilText.EMPTY);
+		setLastName(UtilText.EMPTY);
+		setName(UtilText.EMPTY);
+		setCompleteName(UtilText.EMPTY);
 	}
 
 	public PersonDTO(final String id, final String idCard, final String firstName, final String middleName,
@@ -45,8 +45,8 @@ public final class PersonDTO {
 	}
 
 	public final String getIdCard() {
-		if (idCard == null) {
-			setIdCard("");
+		if (UtilText.isNull(idCard)) {
+			setIdCard(UtilText.EMPTY);
 		}
 		return idCard.trim();
 	}
@@ -56,8 +56,8 @@ public final class PersonDTO {
 	}
 
 	public final String getFirstName() {
-		if (firstName == null) {
-			setFirstName("");
+		if (UtilText.isNull(firstName)) {
+			setFirstName(UtilText.EMPTY);
 		}
 		return firstName.trim();
 	}
@@ -67,8 +67,8 @@ public final class PersonDTO {
 	}
 
 	public final String getMiddleName() {
-		if (middleName == null) {
-			setMiddleName("");
+		if (UtilText.isNull(middleName)) {
+			setMiddleName(UtilText.EMPTY);
 		}
 		return middleName.trim();
 	}
@@ -78,10 +78,11 @@ public final class PersonDTO {
 	}
 
 	public final String getLastName() {
-		if (lastName == null) {
-			setLastName("");
+		if (UtilText.isNull(lastName) ) {
+			setLastName(UtilText.EMPTY);
 		}
 		return lastName.trim();
+
 	}
 
 	public final void setLastName(final String lastName) {
@@ -89,8 +90,8 @@ public final class PersonDTO {
 	}
 
 	public String getName() {
-		if (name == null) {
-			setName("");
+		if (UtilText.isNull(name)) {
+			setName(UtilText.EMPTY);
 		}
 		return name.trim();
 	}
@@ -100,8 +101,8 @@ public final class PersonDTO {
 	}
 
 	public String getCompleteName() {
-		if (completeName == null) {
-			setCompleteName("");
+		if (UtilText.isNull(completeName)) {
+			setCompleteName(UtilText.EMPTY);
 		}
 		return completeName.trim();
 	}

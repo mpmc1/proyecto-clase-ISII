@@ -8,7 +8,7 @@ public final class YearDTO {
 	private int year;
 
 	public YearDTO() {
-		setId("");
+		setId(UtilText.EMPTY);
 		setYear(0);
 	}
 
@@ -22,8 +22,8 @@ public final class YearDTO {
 	}
 
 	public final String getId() {
-		if (id == null) {
-			setId("");
+		if (UtilText.isNull(id)) {
+			setId(UtilText.EMPTY);
 		}
 		return id.trim();
 	}
