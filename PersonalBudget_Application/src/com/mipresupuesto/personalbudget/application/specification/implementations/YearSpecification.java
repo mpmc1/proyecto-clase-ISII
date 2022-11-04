@@ -25,30 +25,6 @@ public class YearSpecification extends CompositeSpecification<YearDomain> {
 		return isNotNuLL(object) && isValidId(object) && isValidYear(object);
 	}
 
-	@Override
-	public ISpecification<YearDomain> and(ISpecification<YearDomain> other) {
-		return new AndSpecification<>(this, other);
-	}
-
-	@Override
-	public ISpecification<YearDomain> or(ISpecification<YearDomain> other) {
-		return new OrSpecification<>(this, other);
-	}
-
-	@Override
-	public ISpecification<YearDomain> not(ISpecification<YearDomain> other) {
-		return new NotSpecification<>(other);
-	}
-
-	@Override
-	public ISpecification<YearDomain> andNot(ISpecification<YearDomain> other) {
-		return new AndNotSpecification<>(this, other);
-	}
-
-	@Override
-	public ISpecification<YearDomain> orNot(ISpecification<YearDomain> other) {
-		return new OrNotSpecification<>(this, other);
-	}
 
 	private boolean isValidId(YearDomain year) {
 		return !UtilObject.getUtilObject().isNull(year.getId())

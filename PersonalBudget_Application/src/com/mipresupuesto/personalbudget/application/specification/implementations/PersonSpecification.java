@@ -22,27 +22,6 @@ public class PersonSpecification extends CompositeSpecification<PersonDomain> {
 		return false;
 	}
 
-	@Override
-	public ISpecification<PersonDomain> and(ISpecification<PersonDomain> other) {
-		return super.and(other);
-	}
-
-	@Override
-	public ISpecification<PersonDomain> andNot(ISpecification<PersonDomain> other) {
-		return super.andNot(other);
-	}
-	@Override
-	public ISpecification<PersonDomain> not(ISpecification<PersonDomain> other) {
-		return super.not(other);
-	}@Override
-	public ISpecification<PersonDomain> or(ISpecification<PersonDomain> other) {
-		return super.or(other);
-	}
-	@Override
-	public ISpecification<PersonDomain> orNot(ISpecification<PersonDomain> other) {
-		return super.orNot(other);
-	}
-
 	private boolean isNotNull(PersonDomain person) {
 		return UtilObject.getUtilObject().isNull(person);
 	}
