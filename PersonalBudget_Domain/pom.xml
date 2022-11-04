@@ -2,7 +2,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_Domain</artifactId>
-	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Domain</name>
 	<description>Componente que contiene los objetos del modelo de dominio de la aplicación Personal Budget.</description>

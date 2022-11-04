@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
 import com.mipresupuesto.personalbudget.controller.response.Response;
+import com.mipresupuesto.personalbudget.controller.response.dto.Message;
 import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 
@@ -28,20 +29,18 @@ public class BudgetController {
 	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget) {
 		Response<BudgetDTO> response = new Response<>();
 		ResponseEntity<Response<BudgetDTO>> responseEntity;
-		HttpStatus statusCode = HttpStatus.BAD_REQUEST;
+		HttpStatus statusCode = HttpStatus.OK;
 		response.setData(new ArrayList<>());
-		ArrayList<String> messages = new ArrayList<>();
 		try {
 			createBudgetPort.execute(budget);
 			response.addData(budget);
-			statusCode = HttpStatus.OK;
-			messages.add("Budget created Succesfully");
+			response.addMessage(Message.createErrorMessage("Budget created Succesfully", "Budget created Succesfully"));
 		}catch(BudgetException exception){
-			messages.add(exception.getMessage());
+			statusCode = HttpStatus.BAD_REQUEST;
+			response.addMessage(Message.createErrorMessage(exception.getMessage(),exception.getMessage()));
 		}catch(Exception exception){
-			messages.add(exception.getMessage());
+			response.addMessage(Message.createErrorMessage(exception.getMessage(),exception.getMessage()));
 		}
-		response.setMessages(messages);
 		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
 		return responseEntity;
 	}

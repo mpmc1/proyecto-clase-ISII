@@ -2,7 +2,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mipresupuesto.personalbudget</groupId>
 	<artifactId>PersonalBudget_Infraestructure</artifactId>
-	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PersonalBudget_Infraestructure</name>
 	<description>Componente que contiene los adapatadores o mecanismos de acceso a fuentes externas como bases de datos,servicios web, archivos y otros para la aplicación Personal Budget.</description>

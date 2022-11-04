@@ -3,11 +3,12 @@ package com.mipresupuesto.personalbudget.controller.response;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mipresupuesto.personalbudget.controller.response.dto.Message;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
 
 public class Response<D> {
 	private List<D> data;
-	private List<String> messages;
+	private List<Message> messages;
 	
 	
 	
@@ -16,25 +17,44 @@ public class Response<D> {
 		super();
 	}
 	
-	public Response(List<D> data, List<String> messages) {
-		super();
-		this.data = data;
-		this.messages = messages;
+	public void addMessage(final Message message ) {
+		if(message !=null) {
+			getMessage().add(message);
+		}
+		
+	}
+	public void addData(final D data ) {
+		if(data !=null) {
+			getData().add(data);
+		}
+		
 	}
 	
-	public List<D> getData() {
-		return data;
-	}
-	public void setData(List<D> data) {
-		this.data = UtilObject.getUtilObject().getDefault(data, new ArrayList<>());
-	}
-	public List<String> getMessages() {
+	public List<Message> getMessage(){
+		if(messages==null) {
+			this.messages = new ArrayList<>();
+		}
 		return messages;
 	}
-	public void setMessages(List<String> messages) {
-		this.messages = UtilObject.getUtilObject().getDefault(messages, new ArrayList<>());;
+	public final void setMessages(List<Message> messages) {
+		if(messages==null) {
+			this.messages = new ArrayList<>();
+		}else{
+			this.messages=messages;
+		}
 	}
-	public void addData(D data) {
-		this.data.add(data);
+	public List<D> getData(){
+		if(data==null) {
+			this.data = new ArrayList<>();
+		}
+		return data;
 	}
+	public final void setData(List<D> data) {
+		if(data==null) {
+			this.data = new ArrayList<>();
+		}else{
+			this.data=data;
+		}
+	}
+
 }
