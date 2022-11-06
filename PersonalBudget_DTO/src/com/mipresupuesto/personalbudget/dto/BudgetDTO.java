@@ -1,19 +1,25 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import java.util.UUID;
+
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 
 public final class BudgetDTO {
+	private String id;
 	private YearDTO year;
 	private PersonDTO person;
 
 	public BudgetDTO() {
+		setId(UtilUUID.DEFAULT_UUID_STRING);
 		setPerson(PersonDTO.create());
 		setYear(YearDTO.create());
 	}
 
-	public BudgetDTO(final YearDTO year, final PersonDTO person) {
+	public BudgetDTO(final String id,final YearDTO year, final PersonDTO person) {
 		setPerson(person);
 		setYear(year);
+		setId(id);
 	}
 
 	public static final BudgetDTO create() {
@@ -40,6 +46,13 @@ public final class BudgetDTO {
 
 	public final void setYear(final YearDTO year) {
 		this.year = UtilObject.getUtilObject().getDefault(year, new YearDTO());
+	}
+	public final String getId() {
+		return id;
+	}
+	
+	public final void setId(final String id) {
+		this.id = UtilUUID.getDefaultUUID(UtilUUID.getUuidFromString(id)).toString();
 	}
 
 }

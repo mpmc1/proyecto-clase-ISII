@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.application.specification;
 
+import org.springframework.stereotype.Component;
+
 public class OrSpecification<T> extends CompositeSpecification<T> {
 	ISpecification<T> left;
 	ISpecification<T> rigth;

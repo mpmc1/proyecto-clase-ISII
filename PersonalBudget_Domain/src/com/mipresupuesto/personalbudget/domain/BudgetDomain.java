@@ -32,7 +32,7 @@ public class BudgetDomain {
 		return person;
 	}
 
-	public final UUID getID() {
+	public final UUID getId() {
 		return id;
 	}
 

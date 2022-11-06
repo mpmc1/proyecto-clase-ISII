@@ -17,12 +17,14 @@ public class CreateBudgetCommand implements CreateBudgetPort {
 	private CreateBudgetUseCase useCase;
 	@Autowired
 	private DTOAssembler<BudgetDTO, BudgetDomain> dtoAssmebler;
-	
+
 	@Override
 	public void execute(BudgetDTO budget) {
 		try {
-			useCase.execute(dtoAssmebler.assembleDomain(budget));			
+			useCase.execute(dtoAssmebler.assembleDomain(budget));
 		} catch (BudgetException exception) {
+			throw exception;
+		} catch (Exception exception) {
 			throw exception;
 		}
 	}

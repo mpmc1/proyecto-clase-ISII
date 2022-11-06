@@ -29,18 +29,19 @@ public class BudgetController {
 	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget) {
 		Response<BudgetDTO> response = new Response<>();
 		ResponseEntity<Response<BudgetDTO>> responseEntity;
-		HttpStatus statusCode = HttpStatus.OK;
+		HttpStatus statusCode = HttpStatus.CREATED;
 		response.setData(new ArrayList<>());
-		try {
-			createBudgetPort.execute(budget);
-			response.addData(budget);
-			response.addMessage(Message.createErrorMessage("Budget created Succesfully", "Budget created Succesfully"));
-		}catch(BudgetException exception){
-			statusCode = HttpStatus.BAD_REQUEST;
-			response.addMessage(Message.createErrorMessage(exception.getMessage(),exception.getMessage()));
-		}catch(Exception exception){
-			response.addMessage(Message.createErrorMessage(exception.getMessage(),exception.getMessage()));
-		}
+			try {
+				createBudgetPort.execute(budget);
+				response.addData(budget);
+				response.addMessage(Message.createSuccessMessage("Budget created Succesfully", "Budget created Succesfully"));
+			}catch(BudgetException exception){
+				statusCode = HttpStatus.BAD_REQUEST;
+				response.addMessage(Message.createErrorMessage(exception.getUserMessage(),"Create budget Error"));
+			}catch(Exception exception){
+				statusCode = HttpStatus.BAD_REQUEST;
+				response.addMessage(Message.createFatalMessage(exception.getMessage(),"Unexpected Error"));
+			}
 		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
 		return responseEntity;
 	}

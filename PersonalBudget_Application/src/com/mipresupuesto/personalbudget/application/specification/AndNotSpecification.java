@@ -1,5 +1,8 @@
 package com.mipresupuesto.personalbudget.application.specification;
 
+import org.springframework.stereotype.Component;
+
+
 public class AndNotSpecification<T> extends CompositeSpecification<T> {
 	
 	 ISpecification<T> left;

@@ -29,7 +29,7 @@ public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, Budg
 	public BudgetEntity assembleEntity(BudgetDomain domain) {
 		BudgetEntity entity = new BudgetEntity();
 		if (!UtilObject.getUtilObject().isNull(domain)) {
-			entity = new BudgetEntity(domain.getID(), yearAssembler.assembleEntity(domain.getYear()),
+			entity = new BudgetEntity(domain.getId(), yearAssembler.assembleEntity(domain.getYear()),
 					personAssembler.assembleEntity(domain.getPerson()));
 		}
 		return entity;

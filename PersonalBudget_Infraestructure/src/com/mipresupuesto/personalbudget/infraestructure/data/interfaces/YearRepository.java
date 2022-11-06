@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.mipresupuesto.personalbudget.entity.YearEntity;
 
 @Repository
-public interface YearRepository extends JpaRepository<YearEntity, UUID                                                                                                                                                               >  {
+public interface YearRepository extends JpaRepository<YearEntity, UUID>{
 	
 }
