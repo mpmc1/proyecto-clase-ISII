@@ -60,8 +60,11 @@ public class BudgetEntity {
 	}
 
 	public UUID getId() {
+		if(id == null) {
+            setId(UtilUUID.DEFAULT_UUID);
+        }
+        return id;
 		
-		return id;
 	}
 
 	public void setId(final UUID id) {
