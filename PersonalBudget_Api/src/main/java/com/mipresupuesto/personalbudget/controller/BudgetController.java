@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 import com.mipresupuesto.personalbudget.email.service.EmailService;
 
+@Controller
 @RestController
 @RequestMapping("api/v1/budget")
 public class BudgetController {

@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.email.service;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,21 +19,25 @@ import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 
 
-
+@Configuration
 @Service
 public class EmailService {
 	private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 	
+	@Value("${spring.sendgrid.api-key}")
+	private String key;
+    
 	public String sendTextEmail() throws IOException {
-		// the sender email should be the same as we used to Create a Single Sender Verification
 		    Email from = new Email("juanjo_cg08@outlook.com");
-		    String subject = "Prueba";
+		    String subject = "Prueba 86";
 		    Email to = new Email("juancho.carmona.13@gmail.com");
-		    Content content = new Content("text/plain", "This is a test email");
+		    Content content = new Content("text/plain", "Goliamos");
 		    Mail
 		    mail = new Mail(from, subject, to, content);
-		
-		    SendGrid sg = new SendGrid("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");
+		    
+		    
+		    
+		    SendGrid sg = new SendGrid(key);
 		    Request request = new Request();
 		    try {
 		      request.setMethod(Method.POST);
