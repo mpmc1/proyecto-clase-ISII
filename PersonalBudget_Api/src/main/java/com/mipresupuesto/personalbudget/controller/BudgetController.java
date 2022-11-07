@@ -1,5 +1,6 @@
 package com.mipresupuesto.personalbudget.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -16,6 +17,7 @@ import com.mipresupuesto.personalbudget.controller.response.Response;
 import com.mipresupuesto.personalbudget.controller.response.dto.Message;
 import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
+import com.mipresupuesto.personalbudget.email.service.EmailService;
 
 @RestController
 @RequestMapping("api/v1/budget")
@@ -49,5 +51,16 @@ public class BudgetController {
 		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
 		return responseEntity;
 	}
+	
+	@Autowired
+	EmailService mailService;
+	
+	@PostMapping("/send-text")
+	public String send() throws IOException {
+		return mailService.sendTextEmail();
+	}
+	
+
+
 	
 }

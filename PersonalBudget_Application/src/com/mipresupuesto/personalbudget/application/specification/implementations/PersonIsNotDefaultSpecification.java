@@ -6,7 +6,6 @@ import com.mipresupuesto.personalbudget.application.specification.CompositeSpeci
 import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
-import com.mipresupuesto.personalbudget.domain.build.PersonDomainBuilder;
 import java.util.Objects;
 
 @Component
