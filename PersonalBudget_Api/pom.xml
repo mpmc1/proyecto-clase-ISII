@@ -63,11 +63,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.mipresupuesto.personalbudget</groupId>
-			<artifactId>PersonalBudget_CrossCuting</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>com.azure.spring</groupId>
 			<artifactId>spring-cloud-azure-starter-keyvault</artifactId>
 		</dependency>

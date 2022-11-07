@@ -2,10 +2,8 @@ package com.mipresupuesto.personalbudget.application.specification.implementatio
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.mipresupuesto.personalbudget.application.specification.CompositeSpecification;
@@ -30,11 +28,16 @@ public class YearExistSpecification extends CompositeSpecification<YearDomain> {
 	}
 	
 	private boolean yearExist(YearDomain year) {
-		Optional<YearEntity> response = yearRepository.findById(year.getId());
-		if(response.isEmpty()) {
-			throw BudgetException.buildUserException("The given year doesn't exist");
+		try {
+			Optional<YearEntity> response = yearRepository.findYearById(year.getId());
+			if(response.isEmpty()) {
+				throw BudgetException.buildUserException("The given year doesn't exist");
+			}
+			return true;			
+		}catch(BudgetException budgetException){
+			throw budgetException;
+		} catch (Exception e) {
+			throw BudgetException.build("Error trying to get year information", e.getMessage());
 		}
-		return true;
 	}
-
 }
