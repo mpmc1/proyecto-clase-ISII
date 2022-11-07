@@ -15,6 +15,7 @@ public class PersonalBudgetApiApplication   {
 
 	
 	public static void main(String[] args) {
+		
 		SpringApplication.run(PersonalBudgetApiApplication.class, args);
 	}
 	
