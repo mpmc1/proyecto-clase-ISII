@@ -29,7 +29,7 @@ public class YearExistSpecification extends CompositeSpecification<YearDomain> {
 	
 	private boolean yearExist(YearDomain year) {
 		try {
-			Optional<YearEntity> response = yearRepository.findYearById(year.getId());
+			Optional<YearEntity> response = yearRepository.findYearById(year.getId().toString());
 			if(response.isEmpty()) {
 				throw BudgetException.buildUserException("The given year doesn't exist");
 			}

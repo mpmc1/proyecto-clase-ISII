@@ -37,7 +37,7 @@ public class CreateBadgetUseCaseImpl implements CreateBudgetUseCase {
 		try {
 			BudgetEntity budgetEntity = entityAssembler.assembleEntity(budget);
 			validBudgetSpecification.isSatisfyBy(budget);
-			budgetRepository.save(budgetEntity);			
+			budgetRepository.createBudgetByPersonAndYear(budgetEntity.getId().toString(),budgetEntity.getYear().getId().toString(),budgetEntity.getPerson().getId().toString());			
 		} catch (BudgetException exception) {
 			throw exception;
 		}catch (Exception e) {

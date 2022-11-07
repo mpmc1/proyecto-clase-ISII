@@ -24,12 +24,14 @@ public class NotBudgetForTheSameYearSpecification extends CompositeSpecification
 
 	private boolean existBudget(BudgetDomain budget) {
 		try {
-			Optional<BudgetEntity> response = budgetRepository.findBudgetByPersonAndYear(budget.getPerson().getId(),
-					budget.getYear().getId());
-			if (response.isEmpty()) {
-				return false;
+			Optional<BudgetEntity> response = budgetRepository.findBudgetByPersonAndYear(budget.getPerson().getId().toString(),
+					budget.getYear().getId().toString());
+			if (response.isPresent()) {
+				throw BudgetException.buildUserException("The given user already has a budget for the provided year");
 			}
-			return true;
+			return false;
+		}catch(BudgetException budgetException){
+			throw budgetException;
 		} catch (Exception e) {
 			throw BudgetException.build("Error trying to get budget information", e.getMessage());
 		}

@@ -25,7 +25,7 @@ public class PersonExistSpecification extends CompositeSpecification<PersonDomai
 	
 	private boolean personExist(PersonDomain person) {
 		try {
-			Optional<PersonEntity> response = personRepository.findById(person.getId());
+			Optional<PersonEntity> response = personRepository.findPersonById(person.getId().toString());
 			if(response.isEmpty()) {
 				throw BudgetException.buildUserException("The given person doesn't exist");
 			}

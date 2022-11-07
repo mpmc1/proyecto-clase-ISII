@@ -12,7 +12,7 @@ import com.mipresupuesto.personalbudget.entity.YearEntity;
 @Repository
 public interface YearRepository extends JpaRepository<YearEntity, UUID>{
 	
-	@Query(value="Select * from dbo.Year y where id = ?1", nativeQuery=true)
-	Optional<YearEntity> findYearById(UUID year);
+	@Query(value="Select * from dbo.Year y where y.id = ?1", nativeQuery=true)
+	Optional<YearEntity> findYearById(String year);
 	
 }
