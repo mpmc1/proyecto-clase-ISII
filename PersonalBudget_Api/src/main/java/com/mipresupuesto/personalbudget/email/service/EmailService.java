@@ -16,6 +16,8 @@ import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 
+
+
 @Service
 public class EmailService {
 	private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
@@ -23,10 +25,11 @@ public class EmailService {
 	public String sendTextEmail() throws IOException {
 		// the sender email should be the same as we used to Create a Single Sender Verification
 		    Email from = new Email("juanjo_cg08@outlook.com");
-		    String subject = "The subject";
+		    String subject = "Prueba";
 		    Email to = new Email("juancho.carmona.13@gmail.com");
 		    Content content = new Content("text/plain", "This is a test email");
-		    Mail mail = new Mail(from, subject, to, content);
+		    Mail
+		    mail = new Mail(from, subject, to, content);
 		
 		    SendGrid sg = new SendGrid("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");
 		    Request request = new Request();
