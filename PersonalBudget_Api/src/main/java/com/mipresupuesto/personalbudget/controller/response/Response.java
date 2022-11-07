@@ -18,43 +18,37 @@ public class Response<D> {
 	}
 	
 	public void addMessage(final Message message ) {
-		if(message !=null) {
+		if(!UtilObject.getUtilObject().isNull(message)) {
 			getMessage().add(message);
 		}
 		
 	}
 	public void addData(final D data ) {
-		if(data !=null) {
+		if(!UtilObject.getUtilObject().isNull(data)) {
 			getData().add(data);
 		}
 		
 	}
 	
 	public List<Message> getMessage(){
-		if(messages==null) {
+		if(UtilObject.getUtilObject().isNull(messages)) {
 			this.messages = new ArrayList<>();
 		}
 		return messages;
 	}
 	public final void setMessages(List<Message> messages) {
-		if(messages==null) {
-			this.messages = new ArrayList<>();
-		}else{
-			this.messages=messages;
-		}
+		
+		this.messages =UtilObject.getUtilObject().getDefault(messages, new ArrayList<>());
+		
 	}
 	public List<D> getData(){
-		if(data==null) {
+		if(UtilObject.getUtilObject().isNull(data)) {
 			this.data = new ArrayList<>();
 		}
 		return data;
 	}
 	public final void setData(List<D> data) {
-		if(data==null) {
-			this.data = new ArrayList<>();
-		}else{
-			this.data=data;
-		}
+		this.data = UtilObject.getUtilObject().getDefault(data, new ArrayList<>());
 	}
 
 }

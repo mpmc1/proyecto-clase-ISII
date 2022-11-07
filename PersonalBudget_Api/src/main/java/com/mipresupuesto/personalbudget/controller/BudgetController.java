@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
 import com.mipresupuesto.personalbudget.controller.response.Response;
 import com.mipresupuesto.personalbudget.controller.response.dto.Message;
@@ -49,4 +48,5 @@ public class BudgetController {
 		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
 		return responseEntity;
 	}
+	
 }

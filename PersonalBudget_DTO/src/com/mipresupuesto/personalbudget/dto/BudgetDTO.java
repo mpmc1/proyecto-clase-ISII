@@ -1,6 +1,5 @@
 package com.mipresupuesto.personalbudget.dto;
 
-import java.util.UUID;
 
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
