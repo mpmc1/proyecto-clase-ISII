@@ -21,7 +21,7 @@ public class SecurityConfig {
                 // allow all users to access the home pages and the static images directory
                 .mvcMatchers("/", "/images/**").permitAll()
                 // all other requests must be authenticated
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and().oauth2Login()
                 .and().logout()
                 // handle logout requests at /logout path
