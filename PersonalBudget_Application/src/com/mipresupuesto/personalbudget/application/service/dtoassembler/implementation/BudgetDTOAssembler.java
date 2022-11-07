@@ -3,7 +3,6 @@ package com.mipresupuesto.personalbudget.application.service.dtoassembler.implem
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.mipresupuesto.personalbudget.application.service.dtoassembler.DTOAssembler;
-import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilObject;
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
