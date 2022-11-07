@@ -31,21 +31,17 @@ public class CreateBadgetUseCaseImpl implements CreateBudgetUseCase {
 	@Autowired
 	private BudgetRepository budgetRepository;
 	@Autowired
-	PersonExistSpecification personExist;
-	@Autowired
-	YearExistSpecification yearExistSpecification;
+	ValidBudgetSpecification validBudgetSpecification;
 	@Override
 	public void execute(BudgetDomain budget) {
 		try {
-			new ValidBudgetSpecification().and(new BudgetIdIsValidSpecification()).isSatisfyBy(budget);
-			new PersonIsNotDefaultSpecification().and(new PersonIdIsValidSpecification()).and(new PersonMandatoryValuesAreNotNullSpecification()).and(personExist).isSatisfyBy(budget.getPerson());
-			new YearIsNotDefaultSpecification().and(new YearIdIsValidSpecification()).and(new YearIsGreatherThanActualSpecification()).and(yearExistSpecification).isSatisfyBy(budget.getYear());
 			BudgetEntity budgetEntity = entityAssembler.assembleEntity(budget);
+			validBudgetSpecification.isSatisfyBy(budget);
 			budgetRepository.save(budgetEntity);			
 		} catch (BudgetException exception) {
 			throw exception;
 		}catch (Exception e) {
-			throw e;
+			throw BudgetException.build("Error trying to create budget", e.getMessage());
 		}
 
 	}

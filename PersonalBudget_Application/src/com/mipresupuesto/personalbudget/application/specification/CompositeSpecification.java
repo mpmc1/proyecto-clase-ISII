@@ -1,6 +1,5 @@
 package com.mipresupuesto.personalbudget.application.specification;
 
-import org.springframework.stereotype.Component;
 
 
 public abstract class CompositeSpecification<T> implements ISpecification<T> {

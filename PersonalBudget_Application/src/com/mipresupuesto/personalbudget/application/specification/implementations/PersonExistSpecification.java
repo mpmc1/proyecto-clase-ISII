@@ -20,19 +20,19 @@ public class PersonExistSpecification extends CompositeSpecification<PersonDomai
 	private PersonRepository personRepository;
 	
 	public boolean isSatisfyBy(PersonDomain object) {
-		try {
 			return personExist(object);
-		} catch (BudgetException exception) {
-			throw exception;
-		}
 	}
 	
 	private boolean personExist(PersonDomain person) {
-		Optional<PersonEntity> response = personRepository.findById(person.getId());
-		if(response.isEmpty()) {
-			throw BudgetException.buildUserException("The given person doesn't exist");
+		try {
+			Optional<PersonEntity> response = personRepository.findById(person.getId());
+			if(response.isEmpty()) {
+				throw BudgetException.buildUserException("The given person doesn't exist");
+			}
+			return true;			
+		}catch(Exception exception) {
+			throw BudgetException.build("Error trying to get person information", exception.getMessage());
 		}
-		return true;
 	}
 		
 }
