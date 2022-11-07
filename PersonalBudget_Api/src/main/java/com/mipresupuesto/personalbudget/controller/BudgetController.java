@@ -41,7 +41,7 @@ public class BudgetController {
 	
 	
 	
-	@PostMapping("post")
+	@PostMapping("/post")
 	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget) {
 		Response<BudgetDTO> response = new Response<>();
 		ResponseEntity<Response<BudgetDTO>> responseEntity;
