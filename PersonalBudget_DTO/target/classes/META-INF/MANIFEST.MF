@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Carlos Manuel Puerta
+=======
+Built-By: pablo
+>>>>>>> 873e4884726ec6a64374afe9b22106c3008d610d
 Build-Jdk: 17.0.4.1
 Created-By: Maven Integration for Eclipse
 
