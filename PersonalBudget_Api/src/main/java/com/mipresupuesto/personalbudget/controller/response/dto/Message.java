@@ -39,6 +39,9 @@ public class Message {
 	public static Message createSuccessMessage(String text, String title) {
 		return new Message(text, title, MessageLevel.SUCCESS);
 	}
+	public static Message createFatalMessage(String text, String title) {
+		return new Message(text, title, MessageLevel.FATAL);
+	}
 
 	public final String getText() {
 		return text;

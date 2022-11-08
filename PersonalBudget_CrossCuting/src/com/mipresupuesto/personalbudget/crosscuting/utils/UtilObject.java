@@ -19,4 +19,7 @@ public class UtilObject {
 	public <T> T getDefault(T object, T defaultValue) {
 		return (isNull(object) ? defaultValue : object);
 	}
+	public <T> boolean isEmpty(T object) {
+		return object.equals(new Object());
+	}
 }

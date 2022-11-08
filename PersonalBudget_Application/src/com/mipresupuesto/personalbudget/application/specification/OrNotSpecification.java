@@ -1,5 +1,6 @@
 package com.mipresupuesto.personalbudget.application.specification;
 
+
 public class OrNotSpecification<T> extends CompositeSpecification<T> {
 	
 	ISpecification<T> left;

@@ -54,6 +54,9 @@ public class BudgetException extends GeneralException {
 
 	private ExceptionType type;
 	private ExceptionLocation location;
+	private String userMessage;
+	private String technicalMessage;
+	private String Message;
 
 	private void setType(ExceptionType type) {
 		this.type = getUtilObject().getDefault(type, ExceptionType.GENERAL);

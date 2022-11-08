@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.mipresupuesto.personalbudget"})
 @EnableJpaRepositories(basePackages = {"com.mipresupuesto.personalbudget"})
@@ -14,8 +15,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 //@PropertySource("classpath:application.yml")
 public class PersonalBudgetApiApplication {
 
+	
 	public static void main(String[] args) {
+		
 		SpringApplication.run(PersonalBudgetApiApplication.class, args);
 	}
+	
+	
 
 }

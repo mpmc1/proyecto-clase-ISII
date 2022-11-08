@@ -1,6 +1,7 @@
 package com.mipresupuesto.personalbudget.dto;
 
 import com.mipresupuesto.personalbudget.crosscuting.utils.UtilText;
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 
 public final class PersonDTO {
 	private String id;
@@ -41,7 +42,7 @@ public final class PersonDTO {
 	}
 
 	public final void setId(final String id) {
-		this.id = UtilText.trim(id);
+		this.id = id==null?UtilUUID.DEFAULT_UUID_STRING:UtilText.trim(id);
 	}
 
 	public final String getIdCard() {
