@@ -7,6 +7,10 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +26,15 @@ import com.mipresupuesto.personalbudget.email.service.EmailService;
 @Controller
 @RestController
 @RequestMapping("api/v1/budget")
+
 public class BudgetController {
+	 @GetMapping("get")
+	    public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
+	        if (principal != null) {
+	            model.addAttribute("profile", principal.getClaims());
+	        }
+	        return "index";
+	    }
 
 	@Autowired
 	private CreateBudgetPort createBudgetPort;
@@ -65,3 +77,4 @@ public class BudgetController {
 
 	
 }
+
