@@ -1,0 +1,32 @@
+spring:
+ security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: zryHPJypbnR3hkE93XNn0bCJXZTP9l7c
+            client-secret: oHnZHf1fWIRid_Ol0x4C5s4Iy9Ij9XvbuAz4LmgmuWi2P3-IIylwFPipq_SkLaBP
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://dev-w6w6pbor6nmhxo5y.us.auth0.com/	
+
+ cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            credential:
+              client-secret: O.Q8Q~.upxivYNv_Uw.O4etOkj0gKVQIBoIQocsc
+              client-id: eecaebad-9eb5-4e46-8ff8-a80d44263478
+            profile:
+              tenant-id: 375a5c51-5ca8-409a-be69-5bae38c7365c
+            endpoint: https://budgetkvsf.vault.azure.net/
+
+
+
+

@@ -76,6 +76,32 @@
 			<groupId>com.azure.spring</groupId>
 			<artifactId>spring-cloud-azure-starter-keyvault</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+		
+	
+		
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.19.1</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>jwks-rsa</artifactId>
+			<version>0.21.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
