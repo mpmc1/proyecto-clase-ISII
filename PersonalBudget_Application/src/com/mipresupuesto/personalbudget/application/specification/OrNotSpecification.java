@@ -1,6 +1,5 @@
 package com.mipresupuesto.personalbudget.application.specification;
 
-import org.springframework.stereotype.Component;
 
 public class OrNotSpecification<T> extends CompositeSpecification<T> {
 	

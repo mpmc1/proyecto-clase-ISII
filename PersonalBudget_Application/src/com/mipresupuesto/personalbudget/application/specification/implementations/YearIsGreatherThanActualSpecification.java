@@ -20,6 +20,9 @@ public class YearIsGreatherThanActualSpecification extends CompositeSpecificatio
 	}
 	
 	private boolean YearIsGreatherThanActual(YearDomain year) {
+		if(year.getYear() == 0) {
+			throw BudgetException.buildUserException("Not year number provided");
+		}
 		if (UtilNumeric.getUtilNumeric().isGreatherThan(year.getYear(), Year.now().getValue()))
 			return true;
 		else
