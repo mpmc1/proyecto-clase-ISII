@@ -9,6 +9,7 @@ import com.mipresupuesto.personalbudget.application.service.entityassembler.Enti
 import com.mipresupuesto.personalbudget.application.service.interfaces.CreateBudgetUseCase;
 import com.mipresupuesto.personalbudget.application.specification.implementations.ValidBudgetSpecification;
 import com.mipresupuesto.personalbudget.crosscuting.exceptions.BudgetException;
+import com.mipresupuesto.personalbudget.crosscuting.utils.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 import com.mipresupuesto.personalbudget.infraestructure.data.interfaces.BudgetRepository;
@@ -27,6 +28,7 @@ public class CreateBadgetUseCaseImpl implements CreateBudgetUseCase {
 	public void execute(BudgetDomain budget) {
 		try {
 			BudgetEntity budgetEntity = entityAssembler.assembleEntity(budget);
+			budgetEntity.setId(UtilUUID.getNewUUID());
 			validBudgetSpecification.isSatisfyBy(budget);
 			budgetRepository.createBudgetByPersonAndYear(budgetEntity.getId().toString(),budgetEntity.getYear().getId().toString(),budgetEntity.getPerson().getId().toString());			
 		} catch (BudgetException exception) {

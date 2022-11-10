@@ -1,19 +1,24 @@
 spring:
  security:
-    oauth2:
-      client:
-        registration:
-          auth0:
-            client-id: zryHPJypbnR3hkE93XNn0bCJXZTP9l7c
-            client-secret: oHnZHf1fWIRid_Ol0x4C5s4Iy9Ij9XvbuAz4LmgmuWi2P3-IIylwFPipq_SkLaBP
-            scope:
-              - openid
-              - profile
-              - email
-        provider:
-          auth0:
-            # trailing slash is important!
-            issuer-uri: https://dev-w6w6pbor6nmhxo5y.us.auth0.com/	
+  oauth2:
+   client:
+    registration:
+     auth0:
+      client-id: 18LuRDg3fdwASLmdWo3YX2KCtB8F4MeC
+      client-secret: kufgYg-MqdqXUg5iwaHcoSinHfG0G03IFmvLGgbZguwauGYOnnPHFXg2fczR4iX4
+      scope:
+       - openid
+       - profile
+       - email
+    provider:
+     auth0:
+      # trailing slash is important!
+      issuer-uri: https://dev-70m2qi1yyx1zi7mm.us.auth0.com/
+   resourceserver:
+    jwt:
+     issuer-uri: https://dev-70m2qi1yyx1zi7mm.us.auth0.com/oauth/token
+ datasource:
+  url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;user=userDmlBudget;password=us3rDmlBudg3t;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30
 
  cloud:
     azure:
@@ -27,6 +32,8 @@ spring:
               tenant-id: 375a5c51-5ca8-409a-be69-5bae38c7365c
             endpoint: https://budgetkvsf.vault.azure.net/
 
-
+server:
+ port: 7000
+ 
 
 

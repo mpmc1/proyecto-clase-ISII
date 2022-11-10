@@ -38,6 +38,8 @@ public class BudgetController {
 
 	@Autowired
 	private CreateBudgetPort createBudgetPort;
+	@Autowired
+	EmailService mailService;
 	
 	@PostMapping
 	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget ) {
@@ -51,6 +53,7 @@ public class BudgetController {
 			response.addData(budget);
 			response.addMessage(
 					Message.createSuccessMessage("Budget created Succesfully", "Budget created Succesfully"));
+			mailService.sendTextEmail();
 		} catch (BudgetException exception) {
 			statusCode = HttpStatus.BAD_REQUEST;
 			response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Create budget Error"));
@@ -66,13 +69,6 @@ public class BudgetController {
 		return responseEntity;
 	}
 	
-	@Autowired
-	EmailService mailService;
-	
-	@PostMapping("/send-text")
-	public String send() throws IOException {
-		return mailService.sendTextEmail();
-	}
 	
 
 

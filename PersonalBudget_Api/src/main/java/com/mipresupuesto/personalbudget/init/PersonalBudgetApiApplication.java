@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"com.mipresupuesto.personalbudget"})
 @EnableJpaRepositories(basePackages = {"com.mipresupuesto.personalbudget"})
 @EntityScan(basePackages = {"com.mipresupuesto.personalbudget"})
-//@PropertySource("classpath:application.yml")
 public class PersonalBudgetApiApplication {
 
 	
